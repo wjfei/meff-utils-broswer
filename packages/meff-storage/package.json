@@ -1,0 +1,24 @@
+{
+  "name": "meff-storage",
+  "version": "1.0.0",
+  "description": "浏览器缓存操作方法",
+  "module": "es/index.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run build:es && npm run build:cjs",
+    "build:es": "tsc --outDir es --module esnext --target es5",
+    "build:cjs": "tsc --outDir lib",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "cookies"
+  ],
+  "author": "wujingfei",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "3.9.3"
+  }
+}
