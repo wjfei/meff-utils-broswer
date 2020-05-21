@@ -1,6 +1,6 @@
 {
   "name": "meff-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "浏览器缓存操作方法",
   "module": "es/index.js",
   "main": "lib/index.js",
