@@ -2,55 +2,48 @@ const ARRAY_TYPE = "array";
 const STRING_TYPE = "string";
 const NUMBER_TYPE = "number";
 const FUNCTION_TYPE = "function";
-const UNDEFINED_TYPE = "undefined";
 const BOOLEAN_TYPE = "boolean";
-function isType(val: any, type?: any) {
-    let typeString = "[object Object]";
-    switch (type) {
-        case ARRAY_TYPE:
-            typeString = "[object Array]";
-            break;
-        case STRING_TYPE:
-            typeString = "[object String]";
-            break;
-        case NUMBER_TYPE:
-            typeString = "[object Number]";
-            break;
-        case FUNCTION_TYPE:
-            typeString = "[object Function]";
-            break;
-        case UNDEFINED_TYPE:
-            typeString = "[object Undefined]";
-            break;
-        case BOOLEAN_TYPE:
-            typeString = "[object Boolean]";
-            break;
-        default:
-            break;
-    }
+const DATE_TYPE = "date";
+const PROMISE_TYPE = "promise";
+const SYMBOL_TYPE = "symbol";
+
+
+type Types = 'object' | "array" | "string" | "number" | "function" | "boolean" | "date" | "symbol" | "promise"
+
+function is(val: any, type: Types = "object") {
+    const typeString = `[object ${type.charAt(0).toUpperCase() + type.slice(1)}]`;
     return Object.prototype.toString.call(val) === typeString;
 }
+
 export function isArray(arr: any) {
-    return isType(arr, ARRAY_TYPE);
+    return is(arr, ARRAY_TYPE);
 }
 export function isObject(object: any) {
-    return isType(object);
+    return is(object);
 }
 export function isBoolean(bool: any) {
-    return isType(bool, BOOLEAN_TYPE);
+    return is(bool, BOOLEAN_TYPE);
 }
 export function isFunction(func: any) {
-    return isType(func, FUNCTION_TYPE);
+    return is(func, FUNCTION_TYPE);
 }
 export function isString(str: any) {
-    return isType(str, STRING_TYPE);
+    return is(str, STRING_TYPE);
 }
 export function isNumber(num: any) {
-    return isType(num, STRING_TYPE);
+    return is(num, NUMBER_TYPE);
+}
+export function isDate(date: any) {
+    return is(date, DATE_TYPE);
+}
+export function isSymbol(symbol: any) {
+    return is(symbol, SYMBOL_TYPE);
+}
+export function isPromise(promise: any) {
+    return is(promise, PROMISE_TYPE);
 }
 export function isNaN(nan: any) {
-    // eslint-disable-next-line no-self-compare
-    return nan !== nan;
+    return typeof nan === "number" && nan !== nan;
 }
 export function isEmpty(val: any) {
     return !val && val !== 0;

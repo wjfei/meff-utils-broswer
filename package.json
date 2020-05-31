@@ -2,9 +2,17 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "pre-commit": "npm run test",
+    "test": "mocha --recursive",
     "publish": "lerna publish"
   },
+  "hooks": {
+    "pre-commit": "npm run pre-commit"
+  },
   "devDependencies": {
-    "lerna": "^3.18.3"
+    "chai": "4.2.0",
+    "husky": "4.2.5",
+    "lerna": "3.18.3",
+    "mocha": "7.2.0"
   }
 }

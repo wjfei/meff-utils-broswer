@@ -1,9 +1,3 @@
-/*
- * @Author: wujingfei 00718
- * @Date: 2020-05-21 17:29:51
- * @Description: Description
- */ 
-
 interface storageInstance {
     get(key: string): any,
     set(key: string, value: any): void,
